@@ -32,12 +32,12 @@
 
 //CODE HERE
 const pizza = {
-    name : 'cheese',
-    price : 3.00,
-    category : 'entree',
-    popularity : 1,
+    name: 'cheese',
+    price: 3.00,
+    category: 'entree',
+    popularity: 1,
     rating: 5,
-    tags : ['contains dairy', 'budget friendly', 'kids']
+    tags: ['contains dairy', 'budget friendly', 'kids']
 
 }
 
@@ -100,45 +100,45 @@ console.log(newCategory)
 //CODE HERE
 
 let foodArr = [
-    dosa = {
-        name : 'masala dosa',
-        price : 9.00,
-        category : 'entree',
-        popularity : 1,
+    {
+        name: 'masala dosa',
+        price: 9.00,
+        category: 'entree',
+        popularity: 1,
         rating: 4,
-        tags : ['vegetarian', 'fermented', 'chutney']
+        tags: ['vegetarian', 'fermented', 'chutney']
     },
-    lassi = {
-        name : 'mango lassi',
-        price : 4.00,
-        category : 'beverage',
-        popularity : 1,
+    {
+        name: 'mango lassi',
+        price: 4.00,
+        category: 'beverage',
+        popularity: 1,
         rating: 5,
-        tags : ['vegetarian', 'refreshing', 'sweet']
+        tags: ['vegetarian', 'refreshing', 'sweet']
     },
-    pakora = {
-        name : 'vegetable pakora',
-        price : 5.00,
-        category : 'entree',
-        popularity : 3,
+    {
+        name: 'vegetable pakora',
+        price: 5.00,
+        category: 'entree',
+        popularity: 3,
         rating: 3,
-        tags : ['vegetarian', 'gluten free', 'chutney']
+        tags: ['vegetarian', 'gluten free', 'chutney']
     },
-    masalaGravy = {
-        name : 'paneer tikka masala',
-        price : 11.00,
-        category : 'entree',
-        popularity : 2,
+    {
+        name: 'paneer tikka masala',
+        price: 11.00,
+        category: 'entree',
+        popularity: 2,
         rating: 4,
-        tags : ['vegetarian', 'spicy']
+        tags: ['vegetarian', 'spicy']
     },
-    gulabJamun = {
-        name : 'gulab jamun',
-        price : 6.00,
-        category : 'dessert',
-        popularity : 2,
+    {
+        name: 'gulab jamun',
+        price: 6.00,
+        category: 'dessert',
+        popularity: 2,
         rating: 5,
-        tags : ['vegetarian', 'cardamom', 'rose water']
+        tags: ['vegetarian', 'cardamom', 'rose water']
     }]
 
 //////////////////PROBLEM 4////////////////////
@@ -155,10 +155,10 @@ let foodArr = [
 
 //CODE HERE
 
-const filteredFood = foodArr.filter(function(element){
-    return element === 'vegetarian'
+const filteredFood = foodArr.filter(function (element) {
+    return element.tags.includes('chutney')
 })
-
+console.log(filteredFood)
 
 //////////////////PROBLEM 5////////////////////
 /* 
@@ -199,14 +199,28 @@ const filteredFood = foodArr.filter(function(element){
     Return the filtered array from the entire function
 */
 
-//CODE HERE
+//function filterByProperty(property, number, type){}
+//return element.tags.includes('vegetarian')
+
+function filterByProperty(property, type, number) {
+    const filteredArray = foodArr.filter(function (element) {
+        if (type === 'above') {
+            return element[property] > number
+        }
+        if (type === 'below') {
+            return element[property] < number
+        }
+    })
+    return filteredArray
+}
+
 
 
 /*
-    Invoke the `filterByProperty` function passing
-    in a value for each paramter.
+Invoke the `filterByProperty` function passing
+in a value for each paramter.
 
-    You'll have to console.log to see the filtered array
+You'll have to console.log to see the filtered array
 */
 
-//CODE HERE
+console.log(filterByProperty('price', 'below', 10))

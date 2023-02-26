@@ -20,22 +20,24 @@
 
 const cart = [
     {
-        name: 'pizza', 
+        name: 'pizza',
         price: 9.99
-    }, 
+    },
     {
-        name: 'pasta', 
+        name: 'pasta',
         price: 8.99
-    }, 
+    },
     {
-        name: 'salad', 
+        name: 'salad',
         price: 7.99
     }
 ]
 
 //CODE HERE
 
-const summedPrice = cart.reduce()
+const summedPrice = cart.reduce(function (acc, cur) {
+    return acc + cur.price
+}, 0)
 
 
 //////////////////PROBLEM 2////////////////////
@@ -55,7 +57,11 @@ const summedPrice = cart.reduce()
 
 //CODE HERE
 
-
+function calcFinalPrice(cartTotal, couponValue, tax) {
+    const taxCalculated = cartTotal * tax + cartTotal
+    const total = taxCalculated - couponValue
+    return total
+}
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -78,7 +84,15 @@ const summedPrice = cart.reduce()
 */
 
 /*
-    TEXT ANSWER HERE
+    The customer object would need a name(string) or 
+    maybe a table number(int) to identify them.
+    We would need an array of meal item objects,
+    We would also need to know if their tab was closed (boolean). 
+    We might also add a place in the wait line (int), which could be
+    where we use the customers name (string). If we had a place in a
+    wait line, then we would need a function to update their place in
+    line, but I don't think that would be part of the customer object.
+
 
 */
 
@@ -87,4 +101,10 @@ const summedPrice = cart.reduce()
     guidelines.
 */
 
-//CODE HERE
+const customer = {
+    name: 'Marissa',
+    placeInLine: 3,
+    tableNumber: 7,
+    mealItems: ['Shrimp Tacos', 'Margarita', 'Flan'],
+    closedOut: false
+}
